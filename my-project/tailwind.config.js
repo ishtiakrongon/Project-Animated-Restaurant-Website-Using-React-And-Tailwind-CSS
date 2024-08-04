@@ -8,7 +8,6 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
         colors: {
           lightYellow: "#f6d876",
           white2: "#fffbf2",
@@ -29,7 +28,6 @@ export default {
             "2xl": "6rem"
           }
         }
-      }
     },
   },
   plugins: [],

@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from "../../assets/food/logo.png";
 import {IoCartOutline} from "react-icons/io5";
+import {motion} from "framer-motion";
 
 const NavMenu = [
   {
@@ -36,32 +37,57 @@ const NavMenu = [
   
 ]
 
+const slideDown = (delay) => {
+  return {
+    initial: {
+      y: "-100%",
+      opacily: 0
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        delay: delay
+      }
+    }
+  }
+}
+
 const Navbar = () => {
   return (
     <nav>
-        <div className="container">
+        <div className="container flex justify-between items-center font-league">
             {/* logo section */}
-            <img src={Logo} alt="" className="w-36"/>
+            <motion.img
+             initial={{ opacity: 0 }}
+             animate={{ opacity: 1 }}
+             transition={{ duration: 0.8, delay: 0.5 }}
+             src={Logo} alt="" className="w-36"/>
             {/* menu section */}
-            <div>
+            <div className="hidden md:block">
               <ul className="flex gap-6">
                 {
                   NavMenu.map((menu) => {
                     return (
-                      <li key={menu.id} className="nav-menu" data-delay={menu.delay}>
+                      <motion.li 
+                      variants={slideDown(menu.delay)}
+                      initial="initial"
+                      animate="animate"
+                      key={menu.id} className="nav-menu" data-delay={menu.delay}>
                         <a href={menu.path} className="inline-block px-2 py-2 text-2xl">{menu.title}</a>
-                      </li>
+                      </motion.li>
                     );
                   })
                 }
               </ul>
             </div>
             {/* button section */}
-            <div>
-              <button className="h-[40px] w-[40px] grid place-items-center rounded-full text-white bg-dark">
+            <motion.div variants={slideDown(1)}>
+              <button className="h-[40px] w-[40px] grid place-items-center rounded-full text-white bg-gray-700">
                 <IoCartOutline/>
               </button>
-            </div>
+            </motion.div>
         </div>
     </nav>
   )
