@@ -1,8 +1,10 @@
-import React from 'react'
-
+import React from 'react';
+import Navbar from "./components/Navbar/Navbar";
 const App = () => {
   return (
-    <div className="bg-red-500">App</div>
+    <div className="overflow-x-hidden bg-white2">
+      <Navbar/>
+    </div>
   )
 }
 
