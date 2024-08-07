@@ -5,6 +5,7 @@ import HotDessert from './components/HotDessert/HotDessert';
 import Banner from './components/Banner/Banner';
 import PopularRecipe from './components/PopularRecipe/PopularRecipe';
 import Testimonial from './components/Testimonial/Testimonial';
+import Footer from './components/Footer/Footer';
 const App = () => {
   return (
     <div className="overflow-x-hidden bg-white2 text-dark">
@@ -16,6 +17,7 @@ const App = () => {
       <Banner />
       <PopularRecipe />
       <Testimonial />
+      <Footer />
     </div>
   )
 }
